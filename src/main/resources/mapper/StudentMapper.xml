@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ssm.dao.StudentDao">
+    <select id="selectById" parameterType="Integer" resultType="Student">
+        select * from student where sid=#{sid}
+    </select>
+
+    <select id="selectAll" resultType="Student">
+        SELECT * from student
+    </select>
+
+    <insert id="inseretStudent" parameterType="Student">
+        INSERT into student(sid,sname,password,subject,goal,cid) VALUES (#{sid},#{sname},
+                            #{password},#{subject},#{goal},1)
+    </insert>
+
+    <delete id="delectStudent" parameterType="int">
+        DELETE FROM student where sid=#{sid}
+    </delete>
+
+    <update id="updateStudent" parameterType="Student">
+        UPDATE student set sid=#{sid},sname=#{sname},password=#{password},subject=#{subject},
+                              goal=#{goal},cid=2
+    </update>
+</mapper>
